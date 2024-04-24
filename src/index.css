@@ -14,7 +14,7 @@ code {
 /* Sidebar.css */
 .sidebar {
   min-width: 200px;
-  min-height: 100vh;
+  min-height: 90vh;
   background: url("./Assets/Sidebar.jpg") no-repeat center center/cover;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
@@ -91,11 +91,12 @@ code {
 }
 .product-form-container {
   max-width: 400px;
-  margin: 0 auto;
+  height: 600px;
+  margin: auto;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: url("./Assets/Sidebar.jpg") no-repeat center center/cover;
+  background-color: rgb(86, 209, 209); 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -142,7 +143,7 @@ label {
   width: 270px;
   min-height: 350px;
   margin: 10px 15px;
-  box-shadow: 5px 8px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 10px;
   display: flex;

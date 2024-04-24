@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function UpdateItem() {
-    const data = useParams();
-    const [productName, setProductName] = useState('');
-    const [imgUrl, setImgUrl] = useState('');
-    const [seller, setSeller] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [catagory, setCatagory] = useState('');
-    console.log(data);
+    const location = useLocation();
+    const {state} = location;
+    const Navigate = useNavigate();
+    const [productName, setProductName] = useState(state.name);
+    const [imgUrl, setImgUrl] = useState(state.imgurl);
+    const [seller, setSeller] = useState(state.saller);
+    const [description, setDescription] = useState(state.desc);
+    const [price, setPrice] = useState(state.price);
+    const [catagory, setCatagory] = useState(state.catagory);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,6 +20,7 @@ function UpdateItem() {
             return;
         }
         const productData = {
+            id : state._id,
             name: productName,
             imgurl: imgUrl,
             saller: seller,
@@ -35,6 +37,9 @@ function UpdateItem() {
             setDescription('');
             setPrice('');
             setCatagory('');
+            window.alert("Product Updated Successfully!");
+            Navigate("/");
+            
         } catch (error) {
             console.error('POST request error:', error);
         }
@@ -81,7 +86,7 @@ function UpdateItem() {
                 ></textarea>
                 <label htmlFor="price">Price:</label>
                 <input
-                    type="number"
+                    type="text"
                     id="price"
                     className="input-field"
                     value={price}
@@ -96,7 +101,7 @@ function UpdateItem() {
                     onChange={(e) => setCatagory(e.target.value)}
                     required
                 />
-                <button type="submit" className="add-button">Add Product</button>
+                <button type="submit" className="add-button">Update Product</button>
             </form>
         </div>
     )

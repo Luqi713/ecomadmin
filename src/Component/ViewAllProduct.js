@@ -30,17 +30,16 @@ function ViewAllProduct() {
   };
   
   const handleDelete = async (id) => {
-    console.log(id);
-    /*
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`https://your-api-endpoint.com/products/${productId}`);
-        const updatedProducts = product.filter((product) => product.id !== productId);
+        await axios.delete(`http://127.0.0.1:3001/delete-id/${id}`);
+        const updatedProducts = product.filter((product) => product.id !== id);
         setProduct(updatedProducts);
+        window.location.reload();
       } catch (error) {
         console.error('Error deleting product:', error);
       }
-    }*/
+    }
   };
 
   return (

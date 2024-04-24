@@ -81,7 +81,7 @@ function AddProduct() {
         ></textarea>
         <label htmlFor="price">Price:</label>
         <input
-          type="number"
+          type="text"
           id="price"
           className="input-field"
           value={price}

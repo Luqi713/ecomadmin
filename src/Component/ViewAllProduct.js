@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function ViewAllProduct() {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const Navigate = useNavigate();
+
 
   useEffect(() => {
     const GetData = async () => {
@@ -23,8 +26,9 @@ function ViewAllProduct() {
   }, []);
 
   const handleEdit = (item) => {
-    console.log('Edit product:', item);
+    Navigate("/update",{ state: item });
   };
+  
   const handleDelete = async (id) => {
     console.log(id);
     /*
@@ -49,7 +53,7 @@ function ViewAllProduct() {
       ) : product !== null ? (
         <div className="product-list">
           {product.map((item) => (
-            <div className="product-card">
+            <div key={item._id} className="product-card">
               <img src={item.imgurl} alt={item.name} />
               <div className="product-details">
                 <p>

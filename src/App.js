@@ -5,6 +5,7 @@ import ViewAllProduct from './Component/ViewAllProduct';
 import ViewOrder from './Component/ViewOrder';
 import ViewCompletedOrder from './Component/ViewCompletedOrder';
 import Sidebar from './Component/SideBar';
+import UpdateItem from './Component/Update';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './Component/Navbar';
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ViewAllProduct />} />
           <Route path='/add-product' element={<AddProduct />} />
+          <Route path='/update' element={<UpdateItem />} />
           <Route path='/view-orders' element={<ViewOrder />} />
           <Route path='/view-completed-orders' element={<ViewCompletedOrder />} />
         </Routes>
